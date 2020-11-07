@@ -1,0 +1,158 @@
+.flexbox{
+    border:10px solid red;
+    display:flex;
+    flex-direction: column;
+    align-items: center; 
+}
+.flex{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+.fontflex{
+    font-size:calc(0.3em + 1.5vw);
+    padding-bottom:10px;
+    display:flex;
+    justify-content: center;
+}
+.inputcontainer{
+      display:flex;
+      flex-direction:column;
+      justify-content: space-around;
+
+}
+.input{
+       display:flex;
+       align-items: stretch;
+}
+@keyframes opacity1{
+    0%{opacity:0}
+    7.69%{opacity:1}
+}
+@keyframes opacity2{
+    0%{opacity:0}
+    7.69%{opacity:0}
+    15.38%{opacity:1}
+}
+@keyframes opacity3{
+    0%{opacity:0}
+    15.38%{opacity:0}
+    23.07%{opacity:1}
+
+}
+@keyframes opacity4{
+    0%{opacity:0}
+    23.7%{opacity:0}
+    30.76%{opacity:1}
+}
+@keyframes opacity5{
+    0%{opacity:0}
+    30.76%{opacity:0}
+    38.45%{opacity:1}
+}
+@keyframes opacity6{
+    0%{opacity:0}
+    38.45%{opacity:0}
+    46.14%{opacity:1}
+}
+@keyframes opacity7{
+    0%{opacity:0}
+    46.14%{opacity:0}
+    53.83%{opacity:1}
+}
+@keyframes opacity8{
+    0%{opacity:0}
+    53.83%{opacity:0}
+    61.52%{opacity:1}
+}
+@keyframes opacity9{
+     0%{opacity:0}
+     61.52%{opacity:0} 
+     69.21%{opacity:1}
+ } 
+ @keyframes opacity10{
+    0%{opacity:0}
+    69.21%{opacity:0} 
+    76.9%{opacity:1}
+} 
+@keyframes opacity11{
+    0%{opacity:0}
+    76.9%{opacity:0}
+    84.59%{opacity:1}
+}
+@keyframes opacity12{
+     0%{opacity:0}
+     84.59%{opacity:0} 
+     92.28%{opacity:1}
+ } 
+ @keyframes opacity13{
+    0%{opacity:0}
+    92.28%{opacity:0} 
+    99.97%{opacity:1}
+} 
+.h1{
+    animation-name: opacity1;
+    animation-duration: 4s;
+    
+}
+.h2{
+    animation-name: opacity2;
+    animation-duration: 4s;
+    
+}
+.h3{
+    animation-name: opacity3;
+    animation-duration: 4s;
+}
+.h4{
+    animation-name: opacity4;
+    animation-duration: 4s;
+    
+}
+.h5{
+    animation-name: opacity5;
+    animation-duration: 4s;
+}
+.h6{
+    animation-name: opacity6;
+    animation-duration: 4s;
+    
+}
+.h7{
+    animation-name: opacity7;
+    animation-duration: 4s;
+}
+.h8{
+    animation-name: opacity8;
+    animation-duration: 4s;
+    
+}
+.h9{
+    animation-name: opacity9;
+    animation-duration: 4s;
+}
+.h10{
+    animation-name: opacity10;
+    animation-duration: 4s;
+    
+}
+.h11{
+    animation-name: opacity11;
+    animation-duration: 4s;
+    
+}
+.h12{
+    animation-name: opacity12;
+    animation-duration: 4s;
+}
+.h13{
+    animation-name: opacity13;
+    animation-duration: 4s;
+    
+}
+.play{
+    display: flex;
+    justify-content:center;
+}
+    

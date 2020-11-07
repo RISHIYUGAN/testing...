@@ -1,0 +1,13 @@
+.rishi{
+    border:1px solid rgb(170, 168, 168);
+    padding:50px; 
+}
+@media(min-width:568px){
+ .rap{
+    display:flex;
+    flex-direction:row; 
+    text-align:start;
+    flex-wrap:wrap;
+    /* justify-content:space-around;     */
+}
+}  
