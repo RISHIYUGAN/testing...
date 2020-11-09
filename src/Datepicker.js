@@ -28,7 +28,8 @@ class Test extends React.Component{
     {
       type:"pushups",
       count:10
-    }]
+    }],
+    current:moment().format('MMMM Do YYYY, h:mm:ss a')
     }
     this.handleClick=this.handleClick.bind(this)
     this.handleSubmit=this.handleSubmit.bind(this)
@@ -36,6 +37,7 @@ class Test extends React.Component{
     this.onFocusChange=this.onFocusChange.bind(this)
     this.datechange=this.datechange.bind(this)
     this.testclick=this.testclick.bind(this)
+    
   }
   componentDidMount(){
     const option=JSON.parse(localStorage.getItem("rishi"))
@@ -137,7 +139,16 @@ testclick(opti,e){
   obj:list
  })
 }
+dateschange(){
+  setInterval(function(){
+    const upd=moment().format("hh:mm:ss a")
+    const str=upd.toString();
+    var clock=document.getElementById("clock")
+    clock.textContent=str
+    })
+}
   render(){
+    const clock=document.getElementById("clock")
     return(
       <div>
         <h1>firstName:<text style={{color:"red"}}>
@@ -179,6 +190,7 @@ testclick(opti,e){
         displayFormat="DD/MM/YYYY"
         />
         <br/>
+        <br/>
         <input
         type="text"
         name="checking"
@@ -187,9 +199,10 @@ testclick(opti,e){
         />
         {console.log(this.state.date.valueOf())}
         <br/>
-        {this.state.obj.map((opt)=><div><p>{opt.type}</p><p>{opt.count}</p><p><input onChange={(e)=>{this.testclick(opt,e)}}/></p></div>)} 
-      </div>
-      
+        {this.state.obj.map((opt)=><div><p>{opt.type}</p><p>{opt.count}</p><p><input onChange={(e)=>{this.testclick(opt,e)}}/></p></div>)}
+        <div id="clock"></div>
+        {this.dateschange()}
+      </div> 
     )
   }
 }
