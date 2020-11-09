@@ -176,6 +176,7 @@ testclick(opti,e){
         onFocusChange={this.onFocusChange}
         numberOfMonths={1}
         renderMonthElement={this.renderMonthElement}
+        displayFormat="DD/MM/YYYY"
         />
         <br/>
         <input
