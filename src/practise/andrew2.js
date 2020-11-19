@@ -6,7 +6,7 @@ let list = [
 },
 {
     key:2,
-    name:"dikshith kumar",
+    name:"dikshith",
     class:"B2",
     dep:"IT" 
 },
@@ -34,5 +34,11 @@ let list = [
     class:"B2",
     dep:"IT" 
 },
+{
+    key:7,
+    name:"parthi",
+    class:"B2",
+    dep:"IT  "
+}
 ]
 export default list;

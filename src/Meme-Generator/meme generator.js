@@ -1,6 +1,6 @@
 import React from "react";
 import "./memegeneretor.css";
-import htmlToImage from "html-to-image";
+import * as htmlToImage from 'html-to-image';
 import download from "downloadjs";
 
 class Meme extends React.Component {
