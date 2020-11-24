@@ -1,19 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
-import {startRemoveExpense} from "./action"
+import {startremove,startRemoveExpense} from "./action"
 
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
   handleclick(option){
     this.props.startRemoveExpense(option.id)
   }
+  handledelete(){
+    this.props.startremove()
+ }
   render() {
     return (
       <div>
         <p>THIS IS DASHBOARD</p>
+        <button onClick={(e)=>{this.handledelete()}}>delete all</button>
+        {console.log(this.props.expense)}
         {this.props.expense &&
           this.props.expense.map((exp) => (
             <div key={exp.id}>
@@ -22,10 +26,11 @@ class Dashboard extends React.Component {
               <p>
                 <button onClick={(e)=>{this.handleclick(exp)}}>delete</button>
               </p>
-              <br />
+              <br/>
             </div>
-          ))}
+          ))} 
       </div>
+      
     );
   }
 }
@@ -34,6 +39,7 @@ const mapStateToProps = (state) => ({
   expense: state.expenses,
 });
 const mapDispatchToProps=(dispatch)=>({
+  startremove:()=>dispatch(startremove()),
   startRemoveExpense:(id)=>dispatch(startRemoveExpense(id))
 })
 export default connect(mapStateToProps,mapDispatchToProps)(Dashboard);

@@ -15,11 +15,49 @@ const expensesReducer=(state=[],action)=>{
             );
 
         case "setExpense":
-            return action.expense;
+            console.log(state)
+            return action.expense
+           
+      case "Updatevalue":
+      return state.map((exp)=>
+        {
+          if(exp.id===action.id){
+              console.log(state)
+              return({
+                  ...exp,
+                  ...action.expenses
+              }
+              )
+          }
+          else {
+              return exp
+          }
 
-
+        })
+        case "deletevalue":
+            return state.filter((exp)=>{
+                return exp.id!==action.id
+            }
+            );
         default:
         return state;
     }
 }
 export {expensesReducer};
+
+
+export const AuthReducer=(state={},action)=>{
+    switch(action.type){
+        case "Login":
+            return {
+               uid:action.uid
+            }
+
+        case "Logout":
+            return {};
+
+        default :
+        return state;
+    }
+
+}

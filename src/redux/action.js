@@ -1,5 +1,5 @@
 import {v4 as uuid} from "uuid"
-import database from "./redux-firebase"
+import database,{firebase,googleAuthProvider} from "./redux-firebase"
 
 const addExpense=(expense)=>({
      type:"addExpense",
@@ -17,15 +17,15 @@ export const startAddExpense=(expense={})=>{
     }
 }
 
- const removeAll=()=>({
-     type:"removeAll",
- })
- export const startremove=()=>{
-     return(dispatch)=>{
-         return database.ref("expense").remove().then(()=>
-         dispatch(removeAll()))
-     }
+const removeAll=()=>({
+    type:"removeAll",
+})
+export const startremove=()=>{
+    return(dispatch)=>{
+        return database.ref("expense").remove().then(()=>
+        dispatch(removeAll()))
     }
+   }
  export const removeExpense=(id)=>({
         type:"removeExpense",
         id
@@ -45,7 +45,7 @@ export const setExpense=(expense)=>({
 })
 
 export const startsetExpense=()=>{
-    return(disaptch)=>{
+    return(dispatch)=>{
         return database.ref("expense").once("value").then((snapshot)=>{
          const expenses=[];
 
@@ -55,9 +55,21 @@ export const startsetExpense=()=>{
                  ...childSnapshot.val()
              })
          })
-         console.log(expenses)
-         disaptch(setExpense(expenses))
+         dispatch(setExpense(expenses))
         }
         )
     }
 }
+export const Updatevalue=(id,expenses)=>({
+  type:"Updatevalue",
+  id,
+  expenses
+})
+
+
+export const deletevalue=(id)=>({
+    type:"deletevalue",
+    id
+})
+
+

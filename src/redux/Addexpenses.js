@@ -62,7 +62,7 @@ class Redux extends React.Component {
           />
           <button>submit</button>
         </form>
-        <button onClick={this.props.handledelete}>delete all</button>
+       
       </div>
     );
   }

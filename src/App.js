@@ -12,13 +12,14 @@ import React from 'react';
 // import Reacto from "./Andrew.js"
 // import Rishi from "./flex/todo"
 // import Addexpensepage from "./redux/expense-fun"
-import Addexpensepage from "./redux/expense-fun"
-import {firebase,database} from "./redux/redux-firebase"
+import Addexpensepage from "./redux/Addexpense-fun"
+import {firebase} from "./redux/redux-firebase"
+import database from "./redux/redux-firebase"
 import './App.css';
 import configstore from "./redux/redux-store"
 import { Provider } from 'react-redux';
-import {AppRouter} from "./redux/Router"
-import {startsetExpense} from "./redux/action"
+import {AppRouter,history} from "./redux/Router"
+import {startsetExpense,setExpense,Updatevalue,Addvalue,deletevalue} from "./redux/action"
 // import Countingapp from "./redux-practise/counting-app"
 export const store = configstore();
 function App() {
@@ -30,12 +31,21 @@ function App() {
    </div>
   );
 }
-firebase.auth().onAuthStateChanged((user)=>{
-  if(user){
-    console.log("log in")
-  }
-  else {
-    console.log("log out")
-  }
-})
-export default App
+
+database.ref("expense").on('child_changed',(snapshot)=>{
+  const val=snapshot.val()
+  const key =  snapshot.key
+  store.dispatch(Updatevalue(key,val))
+ }
+ )
+
+
+ database.ref("expense").on('child_removed',(snapshot)=>{
+  const key =  snapshot.key
+  store.dispatch(deletevalue(key))
+ }
+ )
+
+ export default App
+
+
